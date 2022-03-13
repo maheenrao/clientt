@@ -2,7 +2,7 @@ import React from 'react'
 
 type Props = TodoProps & {
     updateTodo: (todo: ITodo) => void
-    deleteTodo: (_id: string) => void
+    deleteTodo: (_id: string | number) => void
 }
 
 
@@ -16,6 +16,7 @@ const Todo: React.FC<Props> = ({ todo,  deleteTodo }) => {
         <span>{todo?.items}</span>
       </div>
       <div className='Card--button'>
+  
         {/* <button
           onClick={() => updateTodo(todo)}
         >
