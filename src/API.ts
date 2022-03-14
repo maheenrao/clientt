@@ -30,7 +30,7 @@ export const addTodo = async (
   try {
     const todo = {
       title: data.title,
-      items: [...data.items.split(",")],
+      items: [...data.items.split("")],
       
     };
     const saveTodo: AxiosResponse<ApiDataType> = await axios.post(

@@ -18,7 +18,7 @@ const App: React.FC = () => {
     return () => {
       clearTimeout(identifier);
     };
-  }, [todos]);
+  }, []);
 
   const handleSaveTodo = (e: React.FormEvent, formData: ITodo): void => {
     e.preventDefault();

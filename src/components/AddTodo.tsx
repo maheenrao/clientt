@@ -23,7 +23,7 @@ const AddTodo: React.FC<Props> = ({ saveTodo }) => {
       <div>
         <div>
           <label htmlFor="title">Title</label>
-          <input onChange={handleForm} type="text" id="title" />
+          <input onChange={handleForm} type="text" id="title"  placeholder="Tittle"/>
         </div>
         <div>
           <label htmlFor="items">Items</label>

@@ -2,17 +2,18 @@ import React, {useState} from "react";
 
  const Multiple: React.FC =  ( )=>{
 
-const [inputFields, setInputFields] = useState<[{}]>([{ items: "" }]);
-  const handleFormChange = ( index: number, event:  React.FormEvent<HTMLInputElement>): void => {
-    let data : any={...inputFields};
+const [inputFields, setInputFields] = useState([{ items: []}]);
+  const handleFormChange = ( index: any, event:  React.FormEvent<HTMLInputElement>): void => {
+  let data: any  = [...inputFields];
     data[index][event.currentTarget.name] = event.currentTarget.value;
     setInputFields(data);
-  };
+   
+  }
 
   const addFields: React.MouseEventHandler<HTMLButtonElement>= (): void=> {
-    let newfield = { items: "" }
-
-    setInputFields({...inputFields , newfield});
+    let newfield = { items:[] } 
+    setInputFields([...inputFields, newfield]);
+    console.log(newfield);
   };
 
  const submit = (event: React.FormEvent): void => {
@@ -21,19 +22,22 @@ const [inputFields, setInputFields] = useState<[{}]>([{ items: "" }]);
  };
   return (
     <form onSubmit={submit}>
-      {inputFields.map((items: any) => {
-        return (
-          <div key={items.id}>
-            <input
-              name="items"
-              placeholder="items"
-              onChange={(event) => handleFormChange(items, event)}
-            />
-            <button onClick={addFields}>Add More..</button>
-            <button onClick={submit}>Submit</button>
-          </div>
-        );
-      })}
+      <ul>
+        {inputFields.map((input: any, index: any) => {
+          return (
+            <div key={index.id}>
+              <input
+                name="items"
+                placeholder="items"
+                value={input.items}
+                onChange={(event) => handleFormChange(index, event)}
+              />
+              <button onClick={addFields}>Add More..</button>
+              {/* <button onClick={submit}>Submit</button> */}
+            </div>
+          );
+        })}
+      </ul>
     </form>
   );
 };

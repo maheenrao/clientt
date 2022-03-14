@@ -1,7 +1,7 @@
 interface ITodo {
-    id: string
-    title: string
-    items: string
+  id: string;
+  title: string;
+  items: string;
 }
 
 type TodoProps = {
